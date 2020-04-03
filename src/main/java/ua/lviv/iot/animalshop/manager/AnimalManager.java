@@ -12,7 +12,6 @@ public class AnimalManager {
 
 	public AnimalManager(List<AbstractAnimal> animals) {
 		this.animals = animals;
-
 	}
 
 	public void addAnimals(List<AbstractAnimal> animals) {
