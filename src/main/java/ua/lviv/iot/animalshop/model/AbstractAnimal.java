@@ -25,7 +25,7 @@ public class AbstractAnimal {
 	public AbstractAnimal(int ageInMonths) {
 		super();
 		this.ageInMonths = ageInMonths;
-	}
+	}	
 
 	public int getAgeInMonths() {
 		return ageInMonths;
@@ -110,5 +110,13 @@ public class AbstractAnimal {
 	public void setPriceInUAH(double priceInUAH) {
 		this.priceInUAH = priceInUAH;
 	}
+	
+	 public String getHeaders() {
+		 return "name" + "," + "price in hryvnia" + "," + "age";
+		 }
+	 
+	 public String toCSV() {
+		 return getName() + "," + getPriceInUAH() + "," + getAgeInMonths();
+		 }
 
 }

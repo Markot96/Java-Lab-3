@@ -18,4 +18,12 @@ public class Fish extends AbstractAnimal {
 		this.caviarCountPerSeason = caviarCountPerSeason;
 	}
 
+	public String getHeaders() {
+		return super.getHeaders() + "," + "caviar count per season";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + getCaviarCountPerSeason();
+	}
+
 }

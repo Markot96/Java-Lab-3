@@ -17,5 +17,13 @@ public class Mammal extends AbstractAnimal {
 	public void setFurLengthInMeters(double furLengthInMeters) {
 		this.furLengthInMeters = furLengthInMeters;
 	}
+	
+	public String getHeaders() {
+		return super.getHeaders() + "," + "fur length in meters";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + getFurLengthInMeters();
+	}
 
 }
