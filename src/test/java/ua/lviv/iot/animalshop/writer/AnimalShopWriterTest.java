@@ -13,7 +13,7 @@ public class AnimalShopWriterTest extends AnimalManagerTest {
 	@Test
 	void writingAFileTest() throws IOException {
 
-		try (Writer csvWriter = new FileWriter("LawyersWriter.csv")) {
+		try (Writer csvWriter = new FileWriter("AnimalShopWriter.csv")) {
 			animalsWriter.setCsvWriter(csvWriter);
 			animalsWriter.writeToFile(animals);
 		} catch (IOException e) {
