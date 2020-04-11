@@ -25,12 +25,20 @@ public class AnimalShopWriter {
 	}
 
 	public void writeToFile(List<AbstractAnimal> animals) throws IOException {
-		csvWriter.write(animals.get(0).getHeaders());
-		csvWriter.write("\n");
-		for (AbstractAnimal animal : animals) {
-			csvWriter.write(animal.toCSV());
+		try {
+			csvWriter.write(animals.get(0).getHeaders());
 			csvWriter.write("\n");
+
+			for (AbstractAnimal animal : animals) {
+				csvWriter.write(animal.toCSV());
+				csvWriter.write("\n");
+
+			}
+			csvWriter.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			csvWriter.close();
 		}
-		csvWriter.flush();
 	}
 }
