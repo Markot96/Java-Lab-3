@@ -12,7 +12,7 @@ import ua.lviv.iot.animalshop.model.AbstractAnimal;
 import ua.lviv.iot.animalshop.model.BiologicalClass;
 
 
-class AnimalManagerTest extends BaseAnimalManagerTest {
+public class AnimalManagerTest extends BaseAnimalManagerTest {
 	AnimalManager animalManager;
 	
 

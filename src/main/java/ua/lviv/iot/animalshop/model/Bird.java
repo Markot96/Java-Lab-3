@@ -27,4 +27,12 @@ public class Bird extends AbstractAnimal {
 		this.nestForm = nestForm;
 	}
 
+	public String getHeaders() {
+		return super.getHeaders() + "," + "wing span in meters" + "," + "nest form";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + getWingSpanInMeters() + "," + getNestForm();
+	}
+
 }
