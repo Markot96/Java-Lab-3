@@ -3,8 +3,8 @@ package ua.lviv.iot.animalshop.manager;
 import java.util.LinkedList;
 import java.util.List;
 
-import ua.lviv.iot.animalshop.model.AbstractAnimal;
-import ua.lviv.iot.animalshop.model.BiologicalClass;
+import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
+import ua.lviv.iot.animalshop.rest.model.BiologicalClass;
 
 public class AnimalManager {
 

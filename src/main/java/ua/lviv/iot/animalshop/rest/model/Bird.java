@@ -1,4 +1,4 @@
-package ua.lviv.iot.animalshop.model;
+package ua.lviv.iot.animalshop.rest.model;
 
 public class Bird extends AbstractAnimal {
 

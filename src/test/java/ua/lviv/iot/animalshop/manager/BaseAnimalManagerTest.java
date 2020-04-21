@@ -4,10 +4,10 @@ import java.util.LinkedList;
 
 import org.junit.jupiter.api.BeforeEach;
 
-import ua.lviv.iot.animalshop.model.AbstractAnimal;
-import ua.lviv.iot.animalshop.model.Bird;
-import ua.lviv.iot.animalshop.model.Fish;
-import ua.lviv.iot.animalshop.model.Mammal;
+import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
+import ua.lviv.iot.animalshop.rest.model.Bird;
+import ua.lviv.iot.animalshop.rest.model.Fish;
+import ua.lviv.iot.animalshop.rest.model.Mammal;
 
 public abstract class BaseAnimalManagerTest {
 	

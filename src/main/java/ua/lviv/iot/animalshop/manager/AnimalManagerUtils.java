@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 
-import ua.lviv.iot.animalshop.model.AbstractAnimal;
-import ua.lviv.iot.animalshop.model.SortType;
+import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
+import ua.lviv.iot.animalshop.rest.model.SortType;
 
 public class AnimalManagerUtils {
 

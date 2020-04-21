@@ -1,4 +1,4 @@
-package ua.lviv.iot.animalshop.model;
+package ua.lviv.iot.animalshop.rest.model;
 
 public class AbstractAnimal {
 
@@ -21,6 +21,8 @@ public class AbstractAnimal {
 	protected String foodType;
 
 	protected double priceInUAH;
+	
+	private int id;
 
 	public AbstractAnimal(int ageInMonths) {
 		super();
@@ -118,5 +120,18 @@ public class AbstractAnimal {
 	 public String toCSV() {
 		 return getName() + "," + getPriceInUAH() + "," + getAgeInMonths();
 		 }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public AbstractAnimal() {
+	}
+	
+	
 
 }
