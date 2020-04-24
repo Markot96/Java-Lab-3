@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import ua.lviv.iot.animalshop.model.SortType;
+import ua.lviv.iot.animalshop.rest.model.SortType;
 
 public class AnimalManagerUtilsTest extends BaseAnimalManagerTest {
  

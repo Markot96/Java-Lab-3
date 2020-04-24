@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ua.lviv.iot.animalshop.manager.AnimalManager;
-import ua.lviv.iot.animalshop.model.AbstractAnimal;
-import ua.lviv.iot.animalshop.model.BiologicalClass;
+import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
+import ua.lviv.iot.animalshop.rest.model.BiologicalClass;
 
 
 public class AnimalManagerTest extends BaseAnimalManagerTest {

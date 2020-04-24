@@ -5,7 +5,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
 
-import ua.lviv.iot.animalshop.model.AbstractAnimal;
+import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
 
 public class AnimalShopWriter {
 
