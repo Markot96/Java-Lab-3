@@ -50,6 +50,8 @@ public class AnimalController {
 		return ResponseEntity.status(status).build();
 	}
 	
+	
+	
 	@PutMapping(path = "/{id}")
     public ResponseEntity<AbstractAnimal> updateAnimal(final @PathVariable("id") Integer animalId,
             final @RequestBody AbstractAnimal animal) {
@@ -61,7 +63,10 @@ public class AnimalController {
         } else {
             status = HttpStatus.NOT_FOUND;
         }
-        return ResponseEntity.status(status).build();
+        return new ResponseEntity<AbstractAnimal>(animal, status);
     }
 
 }
+
+
+//return ResponseEntity.status(status).build();
