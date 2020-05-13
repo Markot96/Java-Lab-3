@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ua.lviv.iot.animalshop.rest.bussiness.AnimalService;
 import ua.lviv.iot.animalshop.rest.model.AbstractAnimal;
 
 @RequestMapping("/animals")
@@ -26,6 +28,9 @@ public class AnimalController {
 
 	private Map<Integer, AbstractAnimal> animals = new HashMap<>();
 	private AtomicInteger IdCounter = new AtomicInteger();
+
+	@Autowired
+	private AnimalService animalService;
 
 	@GetMapping
 	public List<AbstractAnimal> getAllAnimals() {
@@ -41,27 +46,36 @@ public class AnimalController {
 	public AbstractAnimal createAnimal(final @RequestBody AbstractAnimal animal) {
 		animal.setId(IdCounter.incrementAndGet());
 		animals.put(animal.getId(), animal);
+		animalService.createAnimal(animal);
 		return animal;
 	}
 
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<AbstractAnimal> deleteAnimal(@PathVariable("id") Integer animalId) {
-		HttpStatus status = animals.remove(animalId) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
-		return ResponseEntity.status(status).build();
+		if (animalService.animalExistsCheck(animalId)) {
+			animalService.deleteAnimal(animalId);
+			return ResponseEntity.ok().build();
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
-	
+
 	@PutMapping(path = "/{id}")
-    public ResponseEntity<AbstractAnimal> updateAnimal(final @PathVariable("id") Integer animalId,
-            final @RequestBody AbstractAnimal animal) {
-        HttpStatus status;
-        animal.setId(animalId);
-        if (animals.containsKey(animalId)) {
-            animals.put(animalId, animal);
-            status = HttpStatus.OK;
-        } else {
-            status = HttpStatus.NOT_FOUND;
-        }
-        return ResponseEntity.status(status).build();
-    }
+	public ResponseEntity<AbstractAnimal> updateAnimal(final @PathVariable("id") Integer animalId,
+			final @RequestBody AbstractAnimal animal) {
+		HttpStatus status;
+		animal.setId(animalId);
+		if (animals.containsKey(animalId)) {
+			animals.put(animalId, animal);
+			status = HttpStatus.OK;
+			animalService.updateAnimal(animalId, animal);
+		} else {
+			status = HttpStatus.NOT_FOUND;
+		}
+		
+		return new ResponseEntity<AbstractAnimal>(animal, status);
+	}
 
 }
+
+//return ResponseEntity.status(status).build();
